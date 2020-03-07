@@ -11,7 +11,7 @@ stepCNT = 0;
 
 void loop() {
   // put your main code here, to run repeatedly:
-while( 50 > stepCNT){
+while( stepCNT < 50){
   digitalWrite(10, HIGH);
   delay(1);
   digitalWrite(10, LOW);
