@@ -6,21 +6,16 @@ pinMode(9, OUTPUT); //Direction
 pinMode(4, INPUT); //Microswitch 2
 pinMode(5, INPUT); // Microswitch 1-- zeroing
 pinMode(3, INPUT); // Input SW
-
+stepCNT = 0;
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-if(digitalRead(5) == LOW){
-  digitalWrite(9, HIGH);
+while( 50 > stepCNT){
   digitalWrite(10, HIGH);
   delay(1);
   digitalWrite(10, LOW);
+  stepCNT++;
 }
-if(digitalRead(5) == HIGH){
-  digitalWrite(9, LOW);
-  digitalWrite(10, HIGH);
-  delay(1);
-  digitalWrite(10, LOW);
-}
+
 }
