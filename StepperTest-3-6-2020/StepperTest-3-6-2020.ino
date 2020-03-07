@@ -12,10 +12,8 @@ pinMode(3, INPUT); // Input SW
 void loop() {
   // put your main code here, to run repeatedly:
 while(digitalRead(3) == HIGH){
-  while(digitalRead(5) == LOW){
   digitalWrite(10, HIGH);
-  delay(10);
+  delay(1);
   digitalWrite(10, LOW);
-}
 }
 }
