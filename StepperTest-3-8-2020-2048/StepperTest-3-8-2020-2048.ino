@@ -1,4 +1,4 @@
-int mode = 0;
+bool mode = false;
 void setup() {
   // put your setup code here, to run once:
 pinMode(10, OUTPUT); //Pulse
@@ -11,24 +11,26 @@ pinMode(3, INPUT); // Input SW
 
 void loop() {
   // put your main code here, to run repeatedly:
-if(digitalRead(5) == HIGH && mode == 0){
+if(digitalRead(5) == HIGH && mode == 0 && digitalRead(3) == HIGH){
   digitalWrite(9, HIGH); //Motor direction pin high
   for( int stepcount = 0; stepcount < 50; stepcount++){ //motor turns 50 steps
     digitalWrite(10, HIGH);
     delay(1);
     digitalWrite(10, LOW);
   }
-  mode = 1;
+  mode = true;
+  delay(1000);
   
 }
-else if(digitalRead(5) != HIGH && mode == 1){
+else if(digitalRead(5) != HIGH && mode == 1 && digitalRead(3) != HIGH){
   digitalWrite(9, LOW); //Motor direction pin high
   for( int stepcount = 0; stepcount < 50; stepcount++){ //motor turns 50 steps
     digitalWrite(10, HIGH);
     delay(1);
     digitalWrite(10, LOW);
   }
-  mode = 0;
+  mode = false;
+  delay(1000);
 }
 
 }
